@@ -7,3 +7,4 @@ export default class Shoeshop extends Component {
     )
   }
 }
+
