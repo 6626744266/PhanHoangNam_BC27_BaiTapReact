@@ -17,7 +17,7 @@ const Change = ({ onChange, products }) => {
                                 src={product.url}
                                 alt={product.name}
                                 width="150px"
-                                height="100px"
+                                height="80px"
                                 onClick={() => changeGlasses(product)}
                                 style={{ border: '1px solid #000', }}
                                 className='' />

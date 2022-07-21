@@ -22,11 +22,7 @@ export default class glasses extends Component {
         this.setState({ selectedProduct: product })
     }
 
-    handleChange = (model) => {
-        const imgURL = `./glassesImage/${model}.png`
-        const { ...payload } = this.state.values
-    }
-
+  
 
     render() {
         return (

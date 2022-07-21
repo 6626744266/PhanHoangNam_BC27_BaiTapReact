@@ -18,8 +18,8 @@ const Model = ({ imgURL, selectedProduct }) => {
                     </p>
                 </div>
                 <img src={imgURL} alt="glassesImage" className='position-absolute' style={{
-                    height: '100px', width: '260px', top: " 65px",
-                    left: "73px"
+                    height: '100px', width: '222px', top: " 65px",
+                    left: "91px", opacity:.7
                 }} />
             </div>
             <img className='' src="./glassesImage/model.jpg" alt="secondModel" style={{ width: '400px', height: '400px' }} />
