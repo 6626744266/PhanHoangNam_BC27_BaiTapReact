@@ -1,5 +1,5 @@
 import React from "react";
-import Shoeshop from "./BT_ShoeShop/Shoeshop";
+import Shoeshop from "./BT_ShoeShop/ShoesStore";
 
 
 
