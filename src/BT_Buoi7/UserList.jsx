@@ -47,12 +47,12 @@ export default class UserList extends Component {
                 <td>{user.soDT}</td>
                 <td>{user.loaiND}</td>
                 <td>
-                  <button className="btn btn-success me-2" onClick={() => this.props.onSelectUser(user.id)}>Update</button>
+                  <button className="btn btn-primary me-2" onClick={() => this.props.onSelectUser(user.id)}>Chỉnh sửa</button>
                   <button
                     className="btn btn-danger"
                     onClick={() => this.handleDelete(user.id)}
                   >
-                    Delete
+                    Xoá
                   </button>
                 </td>
               </tr>

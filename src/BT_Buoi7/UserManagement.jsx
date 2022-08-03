@@ -34,6 +34,7 @@ export default class UserManagement extends Component {
 
   fetchUserDetail = async (userId) => {
     document.querySelector('.btn.btn-success').disabled = true
+    document.querySelector('.btn.btn-primary').disabled = false
 
 
 

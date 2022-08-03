@@ -56,6 +56,8 @@ export default class UserForm extends Component {
         })
 
         document.querySelector('.btn.btn-success').disabled = false
+
+        document.querySelector('.btn.btn-primary').disabled = true
       }
       else {
         await axios.post("https://62bb0738573ca8f832912e50.mockapi.io/reactbuoi7", payload)
@@ -199,9 +201,9 @@ export default class UserForm extends Component {
             </div>
           </div>
 
-          <div className="d-flex gap-1 mt-4">
+          <div className="d-flex gap-2 mt-4">
             <button className="btn btn-success">Đăng ký</button>
-            <button className="btn btn-primary">Cập nhật</button>
+            <button className="btn btn-primary" disabled>Cập nhật</button>
           </div>
         </form >
       </div >
