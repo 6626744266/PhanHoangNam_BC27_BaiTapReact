@@ -1,15 +1,9 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-export const Button = styled.button`
-  padding:10px 20px;
-  color:white;
-  background-color:orange;
-  `
-
 export const Wrapper = styled.div`
 background-size:cover;
-/* background-image: url('./img/thumb-1920-378546.jpg')  ; */
+background-image: url('./img/thumb-1920-378546.jpg')  ;
 min-height:100vh;
 top: 0;
     right: 0;
@@ -29,7 +23,7 @@ top: 0;
     left: 0;
     z-index: 0;
     background:#000;
-    opacity:.6
+    opacity:.85
 
 `
 
@@ -43,8 +37,8 @@ border-bottom: 40px solid orange;
       `
 
 export const Square = styled.div`
-width: 50px;
-  height: 50px;
+width: 40px;
+  height:40px;
   background: red;
   border-radius:5px;
 
@@ -63,7 +57,35 @@ width: 50px;
   `}
 `
 
-export const Test=styled.div`
-background:green;
-`
+export const Button = styled.button`
+
+
+  
+  background:${({ isSelected }) => (isSelected ? '#6bee6c' : "white")};
+width:35px;
+padding:0px 5px;
+height:30px;
+border-radius:5px;
+
+
+${(props) => props.isBooked === true && css`
+background-color:red;
+padding:0px 5px;
+border-radius:5px;
+
+pointer-events:none;
+  
+  `}
+
+  
+${(props) => props.variant === "book" && css`
+padding:0px 5px;
+border-radius:5px;
+width:90px;
+margin-top:10px;
+  
+  
+  `}
+
+    `
 

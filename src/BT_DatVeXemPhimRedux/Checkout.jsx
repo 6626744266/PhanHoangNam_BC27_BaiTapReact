@@ -1,10 +1,14 @@
-import React from 'react'
-import { Square } from './styles'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { Button, Square } from './styles'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Checkout = () => {
+    const dispatch = useDispatch()
+    const handleCheckout = (list) => {
+        dispatch({ type: "checkOut", list }) //nếu lấy được isSelected, => isSelected: false
+    }
 
-    const { list } = useSelector((state) => state.seat)
+    const { list, total } = useSelector((state) => state.seat)
 
     return (
         <div className='w-50' >
@@ -27,37 +31,50 @@ const Checkout = () => {
                 </div>
 
 
+                <div style={{ overflowY: 'scroll', maxHeight: "400px" }}>
+                    <table className="table table-bordered my-0" style={{ borderBottom: 0 }}  >
+                        <thead >
+                            <tr >
+                                <th style={{ color: "white", width: "50%" }} scope="col">Số ghế </th>
+                                <th style={{ color: "white", width: "50%" }} scope="col">Giá</th>
 
-                <table className="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">Số ghế </th>
-                            <th scope="col">Giá</th>
+                            </tr>
+                        </thead>
 
-                        </tr>
-                    </thead>
+                        {list.map((selectedSeats) => {
 
-                    {list.map((selectedSeats) => {
-                        return (
+                            return (
+                                <tbody key={selectedSeats.name} style={{ borderTop: "1px solid white" }}>
 
-                                <tbody key={selectedSeats.name}>
-                                    <tr>
-                                        <td>{selectedSeats.name}</td>
-                                        <td>{selectedSeats.price}</td>
+                                    <tr >
+                                        <td style={{ color: "orange" }}>{selectedSeats.name}</td>
+                                        <td style={{ color: "orange" }}>{selectedSeats.price}</td>
                                     </tr>
-                                   
 
                                 </tbody>
 
-                        )
+                            )
 
 
-                    })}
-                </table>
+                        })}
+                        <tbody style={{}}>
+                            <tr style={{
+                                position: "sticky", bottom: 0, borderBottom: 0,
+                                // borderTop: "1px solid red",
+                                borderLeft: "1px solid white", borderRight: "1px solid white"
+                            }}>
+                                <td style={{ color: "orange", background: "red", borderBottom: 0 }}>Tổng tiền</td>
+                                <td style={{ color: "orange", background: "red", borderBottom: 0 }}>{total}</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-
+                </div>
 
             </div >
+            <div className='d-flex justify-content-end'>
+                <Button variant='book' className='bg-success text-white' onClick={() => handleCheckout(list)}> Đặt vé</Button>
+            </div>
         </div >
     )
 }
