@@ -57,7 +57,9 @@ width: 40px;
   `}
 `
 
-export const Button = styled.button`
+
+export const Button =
+  styled.button`
 
 
   
@@ -75,17 +77,20 @@ border-radius:5px;
 
 pointer-events:none;
   
-  `}
+  `};
 
-  
+
 ${(props) => props.variant === "book" && css`
+    
+display:flex;
 padding:0px 5px;
 border-radius:5px;
 width:90px;
 margin-top:10px;
   
-  
+
   `}
 
-    `
+`
+
 

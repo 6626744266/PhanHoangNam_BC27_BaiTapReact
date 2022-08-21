@@ -1,4 +1,6 @@
 import { Test } from "../BT_DatVeXemPhimRedux/styles";
+import produce from "immer";
+
 
 const initialState = {
   seats: [
@@ -174,7 +176,9 @@ const initialState = {
     },
   ],
   list: [],
+  listSuccess: [],
   total: 0,
+  totalSuccess: 0,
 };
 
 const seatReducer = (state = initialState, action) => {
@@ -208,16 +212,27 @@ const seatReducer = (state = initialState, action) => {
 
       const selectedSeatName = state.list.map((e) => e.name);
       selectedSeatName.forEach(() => {
-        state.seats.forEach((seat) => {
+        state.seats.map((seat) => {
           seat.seats.map((e) => {
             if (selectedSeatName.includes(e.name)) {
-              e.booked = true;
-            
+              e.booked = true
+
+
+
             }
-          });
-        });
-      });
-      state.list = []
+          })
+
+        })
+      })
+
+      const newListSuccess = produce(state, draft => {
+        return draft.list
+      })
+
+      const newTotalSuccess = produce(state, draft => {
+        return draft.total
+      })
+      return { ...state, list: [], total: 0, listSuccess: newListSuccess, totalSuccess: newTotalSuccess }
     default:
       return state;
   }
